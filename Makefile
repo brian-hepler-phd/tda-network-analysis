@@ -15,7 +15,7 @@
 # --- Configuration ---
 PYTHON = python3
 CONFIG_FILE = config.yaml
-STATIC_INPUT = data/cleaned/math_arxiv_snapshot.csv
+STATIC_INPUT = data/cleaned/quant-ph_arxiv_snapshot.csv
 
 # Define stamp files that represent the completion of each major step.
 STAMP_TOPICS         = .stamp_1_topics_built

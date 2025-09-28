@@ -36,10 +36,10 @@ def main():
     doc_topics_df = doc_topics_df[doc_topics_df['topic'] != -1]
     
     # Join the two dataframes
-    merged_df = pd.merge(doc_topics_df[['id', 'topic']], arxiv_df[['id', 'authors_parsed']], on='id')
+    merged_df = pd.merge(doc_topics_df[['id', 'topic']], arxiv_df[['id', 'authors_parsed','update_date']], on='id')
     
     # Select and reorder columns
-    final_df = merged_df[['topic', 'id', 'authors_parsed']]
+    final_df = merged_df[['topic', 'id', 'authors_parsed','update_date', 'title','abstract']]
     
     # Get output path from config and save
     output_path = config.get_path('author_topic_network_path')

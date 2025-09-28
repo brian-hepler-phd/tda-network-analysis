@@ -6,7 +6,7 @@ from pathlib import Path
 sys.path.append(str(Path(__file__).resolve().parent.parent))
 
 """
-BERTopic Analysis for Math Research Compass
+BERTopic Analysis for Research Compass
 ------------------------------------------
 This script performs topic modeling analysis on arXiv papers:
 1. Loads and processes pre-cleaned arXiv data from CSV
@@ -89,7 +89,10 @@ STOPWORDS = {
     "therefore", "hence", "obtain", "we", "our", "propose", "method", "approach",
     "introduce", "study", "analyze", "present", "develop", "data", "set", "model",
     "algorithm", "equation", "function", "theorem", "lemma", "define", "definition",
-    "example", "problem", "solution", "property", "application"
+    "example", "problem", "solution", "property", "application",
+    "algorithm", "method", "system", "network", "learning", "classification", 
+"optimization", "performance", "experimental", "evaluation", "dataset", 
+"training", "testing", "validation", "accuracy", "precision", "recall"
 }
 
 
@@ -101,7 +104,7 @@ def parse_arguments():
     parser.add_argument(
         "--custom-csv",
         type=str,
-        default="data/cleaned/math_arxiv_snapshot.csv",
+        default="data/cleaned/cs_arxiv_snapshot.csv",
         help="Path to the CSV file with pre-cleaned arXiv math data"
     )
     parser.add_argument(
@@ -119,7 +122,7 @@ def parse_arguments():
     parser.add_argument(
         "--min-topic-size", 
         type=int, 
-        default=15,
+        default=20,
         help="Minimum cluster size for topics"
     )
     parser.add_argument(
@@ -391,7 +394,7 @@ def main():
         logger.info(f"Analyzing all math categories in the dataset: {len(df)} papers")
     
     # Filter to recent years
-    df_recent = filter_recent_years(df, args.years)
+    df_recent = filter_recent_years(df, 5)
     
     if df_recent.empty:
         logger.error(f"No data found for the last {args.years} years. Exiting.")

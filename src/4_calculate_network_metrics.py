@@ -8,11 +8,11 @@ sys.path.append(str(Path(__file__).resolve().parent.parent))
 """
 Collaboration Network Analysis for Math Research Compass - Version 5
 ==============================================================================
-For each of the 1,938 research topics, we constructed an undirected co-authorship network
+For each of the discovered research topics, we constructed an undirected co-authorship network
 where nodes represent authors and weighted edges represent collaborations. 
 On each of these networks, we systematically computed ten established network metrics to quantify their structural properties. 
 These metrics measured collaboration dynamics, network topology, structural resilience, and researcher positioning. 
-The resulting dataset of 1,938 topics, each described by ten structural metrics, formed the basis for our statistical analysis.
+The resulting dataset of discovered topics, each described by ten structural metrics, formed the basis for our statistical analysis.
 
 Analyzes collaboration patterns with the 10 core network measures:
 1. Collaboration Rate
